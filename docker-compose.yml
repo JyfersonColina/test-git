@@ -1,0 +1,22 @@
+version: '3'
+services:
+  test:
+    volumes:
+      - ${MY_WORKSPACE}:/ws
+    #working_dir: /ws${WORKSPACE_PATH:-/}/app
+    build:
+      dockerfile: Dockerfile-test
+      context: .
+      args:
+        USERNAME_REPOSITORY: ${USERNAME_REPOSITORY}
+        PASSWORD_REPOSITORY: ${PASSWORD_REPOSITORY}
+        GOCACHE: /ws${WORKSPACE_PATH:-/}/app
+    user: ${MY_USER}
+    environment:
+      NEXUS_USERNAME: ${NEXUS_USERNAME}
+      NEXUS_PASSWORD: ${NEXUS_PASSWORD}
+      USERNAME_REPOSITORY: ${USERNAME_REPOSITORY}
+      PASSWORD_REPOSITORY: ${PASSWORD_REPOSITORY}
+      NEXUS_URL: ${NEXUS_URL}
+      SONAR_BASE: /ws${WORKSPACE_PATH:-/}/coverage
+      GOCACHE: /ws${WORKSPACE_PATH:-/}/app
