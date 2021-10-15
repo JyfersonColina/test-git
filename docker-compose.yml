@@ -20,3 +20,5 @@ services:
       NEXUS_URL: ${NEXUS_URL}
       SONAR_BASE: /ws${WORKSPACE_PATH:-/}/coverage
       GOCACHE: /ws${WORKSPACE_PATH:-/}/app
+      
+      hice algunos cambios
